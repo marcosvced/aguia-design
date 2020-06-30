@@ -1,4 +1,4 @@
-@import "scss/mixins/grid";
+@import "mixins/grid";
 
 @each $name, $value in $breakpoints {
   @include media($value) {
