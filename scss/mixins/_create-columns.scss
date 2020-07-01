@@ -1,0 +1,15 @@
+@mixin create-columns($column, $number-of-columns) {
+  @for $column-number from 1 through $number-of-columns {
+    .#{$column}-#{$column-number} {
+      --col-size-with-gap: #{column-with-gap($grid_gutter, $number-of-columns, $column-number)};
+      --col-size-without-gap: #{column-without-gap($number-of-columns, $column-number)};
+    }
+    .#{$column}-offset-#{$column-number} {
+      --offset-with-gap: #{offset-with-gap($grid_gutter, $number-of-columns, $column-number)};
+      --offset-without-gap: #{offset-without-gap($number-of-columns, $column-number)};
+    }
+    .#{$column}-order-#{$column-number} {
+      order: $column-number;
+    }
+  }
+}

@@ -1,0 +1,110 @@
+@mixin utilities($prefix, $space) {
+  .#{$prefix}-fit-content {
+    width: fit-content;
+  }
+  .#{$prefix}-text- {
+    &left {
+      text-align: left;
+    }
+
+    &right {
+      text-align: right;
+    }
+
+    &center {
+      text-align: center;
+    }
+  }
+  .#{$prefix}-position- {
+    &absolute {
+      position: absolute;
+    }
+
+    &static {
+      position: static;
+    }
+
+    &relative {
+      position: relative;
+    }
+
+    &sticky {
+      position: sticky;
+    }
+
+    &fixed {
+      position: fixed;
+    }
+  }
+  .#{$prefix}-pull {
+    float: left;
+  }
+  .#{$prefix}-push {
+    float: right;
+  }
+  .#{$prefix}-clear:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  @for $i from 0 through ($number-of-columns * 2) {
+    .#{$prefix}-m {
+      &-#{$i} {
+        margin: $space * $i;
+      }
+
+      &b-#{$i} {
+        margin: {
+          bottom: $space * $i;
+        };
+      }
+
+      &t-#{$i} {
+        margin: {
+          top: $space * $i;
+        };
+      }
+
+      &l-#{$i} {
+        margin: {
+          left: $space * $i;
+        };
+      }
+
+      &r-#{$i} {
+        margin: {
+          right: $space * $i;
+        };
+      }
+    }
+    .#{$prefix}-p {
+      &-#{$i} {
+        padding: $space * $i;
+      }
+
+      &b-#{$i} {
+        padding: {
+          bottom: $space * $i;
+        };
+      }
+
+      &t-#{$i} {
+        padding: {
+          top: $space * $i;
+        };
+      }
+
+      &l-#{$i} {
+        padding: {
+          left: $space * $i;
+        };
+      }
+
+      &r-#{$i} {
+        padding: {
+          right: $space * $i;
+        };
+      }
+    }
+  }
+}
