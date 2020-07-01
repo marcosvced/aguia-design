@@ -59,7 +59,7 @@
 
         &:not(:last-child) {
           margin: {
-            right: $grid_gutter;
+            right: $layout-grid-gutter;
           };
         }
       }
@@ -78,7 +78,7 @@
 
       &.#{$prefix}-restore-gap {
         margin: {
-          right: $grid_gutter;
+          right: $layout-grid-gutter;
         };
       }
     }

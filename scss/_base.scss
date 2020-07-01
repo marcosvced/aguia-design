@@ -1,6 +1,6 @@
 :root {
-  --container-size: #{map-get($breakpoints, $container-max-width)};
-  --container-padding: #{$container-padding};
+  --container-size: #{map-get($breakpoints, $layout-grid-max-width)};
+  --container-padding: #{$layout-grid-margin};
 }
 
 .o-container,

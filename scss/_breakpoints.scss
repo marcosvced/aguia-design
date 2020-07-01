@@ -1,4 +1,4 @@
-$breakpoints: (
+$breakpoints-default: (
         '': 0,
         'xsm': 375px,
         'sm': 480px,
@@ -7,3 +7,5 @@ $breakpoints: (
         'lg': 1366px,
         'xl': 1920px,
 );
+
+$breakpoints: map-merge($breakpoints-default, $new-breakpoints) !default;

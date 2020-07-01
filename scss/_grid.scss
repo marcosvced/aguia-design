@@ -1,8 +1,8 @@
 @each $name, $value in $breakpoints {
   @include size($name) {
-    @include create-columns(if($name == '', '-col', '-#{$name}-col'), $number-of-columns);
+    @include create-columns(if($name == '', '-col', '-#{$name}-col'), $layout-grid-count);
     @include display(if($name != '', '-#{$name}', ''));
     @include flex(if($name != '', '-#{$name}', ''));
-    @include utilities(if($name != '', '-#{$name}', ''), $grid_gutter);
+    @include utilities(if($name != '', '-#{$name}', ''), $layout-grid-gutter);
   }
 }
