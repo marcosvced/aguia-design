@@ -1,0 +1,31 @@
+@mixin display($prefix) {
+  .#{$prefix}-display- {
+    &row {
+      display: flex;
+      flex-direction: row;
+
+      &-reverse {
+        display: flex;
+        flex-direction: row-reverse;
+      }
+    }
+
+    &column {
+      display: flex;
+      flex-direction: column;
+
+      &-reverse {
+        display: flex;
+        flex-direction: column-reverse;
+      }
+    }
+
+    &none {
+      display: none;
+    }
+
+    &block {
+      display: block;
+    }
+  }
+}
