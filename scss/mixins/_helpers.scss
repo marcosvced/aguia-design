@@ -47,7 +47,7 @@
     display: table;
     clear: both;
   }
-  @for $i from 0 through ($number-of-columns * 2) {
+  @for $i from 0 through ($layout-grid-count * 2) {
     .#{$prefix}-m {
       &-#{$i} {
         margin: $space * $i;

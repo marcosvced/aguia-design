@@ -8,11 +8,11 @@
 @import "mixins/flex-box";
 @import "mixins/helpers";
 
-/*** Breakpoints */
-@import "breakpoints";
-
 /*** Variables ***/
 @import "variables";
+
+/*** Breakpoints */
+@import "breakpoints";
 
 /*** Grid ********/
 @import "grid";
