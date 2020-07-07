@@ -1,25 +1,22 @@
 :root {
   --container-size: #{map-get($breakpoints, $layout-grid-max-width)};
-  --container-padding: #{$layout-grid-margin};
+  --container-margin: #{$layout-grid-margin};
+}
+
+* {
+  box-sizing: border-box;
 }
 
 .o-container,
 [class*='-container'] {
+  width: calc(100% - calc(var(--container-margin * 2)));
   max-width: var(--container-size);
-  padding:{
-    left: var(--container-padding);
-    right: var(--container-padding);
-  }
   margin: {
     left: auto;
     right: auto
   };
-  box-sizing: content-box;
-
-  * {
-    box-sizing: border-box;
-  }
 }
+
 [class*='-col-'] {
   width: calc(var(--col-size-without-gap));
 }
