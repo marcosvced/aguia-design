@@ -9,7 +9,7 @@
 
 .o-container,
 [class*='-container'] {
-  width: calc(100% - calc(var(--container-margin * 2)));
+  width: calc(100% - calc(var(--container-margin) * 2));
   max-width: var(--container-size);
   margin: {
     left: auto;
