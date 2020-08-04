@@ -54,32 +54,13 @@
     }
 
     &.#{$prefix}-gap {
+      gap: $layout-grid-gutter;
       & > [class*='-col-'] {
         width: var(--col-size-with-gap);
-
-        &:not(:last-child) {
-          margin: {
-            right: $layout-grid-gutter;
-          };
-        }
       }
 
       & > [class*='-offset-'] {
         margin-left: var(--offset-with-gap);
-      }
-    }
-
-    &[class*='-gap'] > [class*='-col-'] {
-      &.#{$prefix}-remove-gap {
-        margin: {
-          right: 0;
-        };
-      }
-
-      &.#{$prefix}-restore-gap {
-        margin: {
-          right: $layout-grid-gutter;
-        };
       }
     }
   }
