@@ -1,13 +1,42 @@
 @mixin create-columns($column, $layout-grid-count) {
+  @include get-root($column,$layout-grid-count);
+  @include get-columns($column, $layout-grid-count);
+  @include get-offset($column, $layout-grid-count);
+  @include get-order($column);
+}
+
+@mixin get-root($column, $layout-grid-count) {
+  :root {
+    @for $column-number from 1 through $layout-grid-count {
+      -#{$column}-#{$column-number}-gap: #{column-with-gap($layout-grid-gutter, $layout-grid-count, $column-number)};
+      -#{$column}-#{$column-number}: #{column-without-gap($layout-grid-count, $column-number)};
+    }
+  }
+}
+
+@mixin get-columns($column, $layout-grid-count) {
   @for $column-number from 1 through $layout-grid-count {
+    [class*='#{$column}-#{$column-number}'],
     .#{$column}-#{$column-number} {
       --col-size-with-gap: #{column-with-gap($layout-grid-gutter, $layout-grid-count, $column-number)};
       --col-size-without-gap: #{column-without-gap($layout-grid-count, $column-number)};
     }
+  }
+}
+
+@mixin get-offset($column, $layout-grid-count) {
+  @for $column-number from 1 through $layout-grid-count {
+    [class*='#{$column}-offset-#{$column-number}'],
     .#{$column}-offset-#{$column-number} {
       --offset-with-gap: #{offset-with-gap($layout-grid-gutter, $layout-grid-count, $column-number)};
       --offset-without-gap: #{offset-without-gap($layout-grid-count, $column-number)};
     }
+  }
+}
+
+@mixin get-order($column) {
+  @for $column-number from 1 through $layout-grid-count {
+    [class*='#{$column}-order-#{$column-number}'],
     .#{$column}-order-#{$column-number} {
       order: $column-number;
     }
