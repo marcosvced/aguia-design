@@ -1,0 +1,105 @@
+@use "sass:map";
+@use "sass:math";
+
+@use "../settings/prefixes";
+@use "../settings/layout";
+@use "../settings/breakpoints";
+@use "../tools/mixins/media";
+@use "../tools/mixins/utils";
+
+:root {
+  $previous-space: 0;
+  @each $breakpoint, $space in layout.$container-space {
+    @if ($previous-space != $space) {
+      @include media.screen($breakpoint) {
+        --c-margin: #{$space};
+      }
+    }
+    $previous-space: $space;
+  }
+}
+
+.-container {
+  margin: auto;
+  width: 100%;
+  @include utils.padding-inline(var(--c-margin));
+
+}
+
+.-grid {
+  display: grid;
+  column-gap: layout.$gutter;
+
+
+  $previous-number: 0;
+  @each $breakpoint, $number in layout.$columns {
+    @if ($previous-number != $number) {
+      @include media.screen($breakpoint) {
+        grid-template-columns: repeat($number, 1fr);
+      }
+    }
+    $previous-number: $number;
+  }
+
+  .-column {
+    grid-template-columns: repeat(var(--columns), 1fr);
+  }
+}
+
+.-row {
+  display: flex;
+  flex-direction: row;
+  column-gap: layout.$gutter;
+
+  .-column {
+    width: auto;
+    flex-grow: 1;
+    flex-shrink: 1;
+  }
+}
+
+@each $breakpoint, $_ in breakpoints.$breakpoints {
+  @include media.screen($breakpoint) {
+    $is: if($breakpoint == breakpoints.$min-breakpoint,
+            '#{prefixes.$pf-modifier}#{prefixes.$pf-column-width}',
+            '#{prefixes.$pf-modifier}#{$breakpoint}\\#{prefixes.$pf-separator}#{prefixes.$pf-column-width}'
+    );
+
+    @for $index from 1 through map.get(layout.$columns, $breakpoint) {
+      .#{$is}-#{$index} {
+        --columns: #{$index};
+        grid-column: auto / span $index;
+      }
+    }
+  }
+}
+
+$fractions: (1 '-full', 2 '-half', 3 '-one-third', 4 '-one-quarter');
+@each $breakpoint, $_ in breakpoints.$breakpoints {
+  @include media.screen($breakpoint) {
+    $is: '#{prefixes.$pf-modifier}#{$breakpoint}\\#{prefixes.$pf-separator}#{prefixes.$pf-column-width}';
+
+    @each $index, $suffix in $fractions {
+      .#{$is}#{$suffix},
+      .#{prefixes.$pf-modifier}#{prefixes.$pf-column-width}#{$suffix} {
+        @at-root {
+          .-grid > &.-column {
+            $number: #{math.div(map.get(layout.$columns, $breakpoint), $index) };
+            grid-column: auto / span #{$number};
+          }
+        }
+        @at-root {
+          .-row > &.-column {
+            min-width: calc(math.div(100%, $index) - #{layout.$gutter * $index} ) !important;
+          }
+        }
+      }
+    }
+  }
+}
+
+.-wrap {
+  flex-wrap: wrap;
+}
+
+

@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Aguia Design examples</title>
+    <link rel="stylesheet" href="../../dist/css/main.css">
+    <style>
+        main {
+            grid-template-rows: repeat(3, 1fr);
+        }
+        .a-box {
+            background-color: #4e4949;
+            height: 2rem;
+            border-radius: .5rem;
+            margin-bottom: 1rem;
+        }
+        .a-box.-secondary {
+            background-color: #878787;
+        }
+    </style>
+</head>
+<body>
+<main class="-container">
+    <div class="-grid">
+        <div class="a-box -column -is-full"></div>
+    </div>
+
+    <div class="-grid">
+        <div class="a-box -column -is-half"></div>
+        <div class="a-box -secondary -column -is-half"></div>
+    </div>
+
+    <div class="-grid">
+        <div class="a-box -column -is-one-third"></div>
+        <div class="a-box -secondary -column -is-one-third"></div>
+        <div class="a-box -secondary -column -is-one-third"></div>
+    </div>
+
+    <div class="-grid">
+        <div class="a-box -column -is-one-quarter"></div>
+        <div class="a-box -secondary -column -is-one-quarter"></div>
+        <div class="a-box -secondary -column -is-one-quarter"></div>
+        <div class="a-box -secondary -column -is-one-quarter"></div>
+    </div>
+
+
+    <div class="-row">
+        <div class="a-box -column -is-full"></div>
+    </div>
+
+    <div class="-row">
+        <div class="a-box -column -is-half"></div>
+        <div class="a-box -secondary -column -is-half"></div>
+    </div>
+
+    <div class="-row">
+        <div class="a-box -column -is-one-third"></div>
+        <div class="a-box -secondary -column -is-one-third"></div>
+        <div class="a-box -secondary -column -is-one-third"></div>
+    </div>
+
+    <div class="-row -wrap">
+        <div class="a-box -column -is-one-quarter"></div>
+        <div class="a-box -secondary -column -is-one-quarter"></div>
+        <div class="a-box -secondary -column -is-one-quarter"></div>
+        <div class="a-box -secondary -column -is-one-quarter"></div>
+        <div class="a-box -secondary -column -is-one-quarter"></div>
+    </div>
+</main>
+</body>
+</html>

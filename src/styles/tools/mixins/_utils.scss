@@ -1,0 +1,39 @@
+@use "sass:selector";
+@use "../../settings/layout";
+@use "../../tools/mixins/media";
+
+@mixin disabled {
+  &:disabled,
+  &.-disabled,
+  &[aria-disabled='true'] {
+    @content;
+  }
+}
+
+@mixin invalid {
+  &.-invalid,
+  &[aria-invalid='true'] {
+    @content;
+  }
+}
+
+@mixin padding-inline($padding) {
+  padding-left: $padding;
+  padding-right: $padding;
+}
+
+@mixin margin-inline($margin) {
+  margin-left: $margin;
+  margin-right: $margin;
+}
+
+@mixin padding-block($padding) {
+  padding-top: $padding;
+  padding-bottom: $padding;
+}
+
+@mixin margin-block($margin) {
+  margin-top: $margin;
+  margin-bottom: $margin;
+}
+

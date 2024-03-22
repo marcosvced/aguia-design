@@ -1,8 +1,8 @@
 {
   "name": "@devler/aguia-scss",
-  "version": "1.5.0",
+  "version": "2.0.0",
   "description": "A simple responsive framework",
-  "main": "scss/main.scss",
+  "main": "src/styles/main.scss",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/marcosvced/aguia-design/issues"
   },
-  "homepage": "https://aguia-design.netlify.app/"
+  "homepage": "https://aguia-design.netlify.app/",
+  "dependencies": {
+    "sass": "^1.72.0"
+  }
 }

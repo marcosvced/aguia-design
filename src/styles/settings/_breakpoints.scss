@@ -1,0 +1,11 @@
+@use '../tools/functions/size';
+$min-breakpoint: xxs;
+$breakpoints: (
+        'xxs': 0, // xxs
+        'xs':  size.rem(360),
+        'sm':  size.rem(768),
+        'md':  size.rem(1024),
+        'lg':  size.rem(1280),
+        'xl':  size.rem(1440),
+        'xxl': size.rem(1920),
+);

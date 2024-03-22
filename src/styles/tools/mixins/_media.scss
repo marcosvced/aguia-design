@@ -1,0 +1,18 @@
+@use "../../settings/breakpoints" as *;
+
+/*
+Tools to crate media
+@param {string} $size - a breakpoint key or a min-width size value
+*/
+
+@mixin screen($size) {
+  @if map_has-key($breakpoints, $size) {
+    @media screen and (min-width: map_get($breakpoints, $size)) {
+      @content
+    }
+  } @else {
+    @media screen and (min-width: $size) {
+      @content
+    }
+  }
+}

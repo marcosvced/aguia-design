@@ -54,7 +54,7 @@
     }
 
     &.#{$prefix}-gap {
-      gap: $layout-grid-gutter;
+      gap: $gutter;
       & > [class*='-col-'] {
         width: var(--col-size-with-gap);
       }

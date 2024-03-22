@@ -1,0 +1,24 @@
+@use 'sass:map';
+@use '../settings/breakpoints';
+@use '../tools/functions/size';
+
+$gutter: size.rem(16) !default;
+$max-width: map.get(breakpoints.$breakpoints, xxl) !default;
+$columns: (
+        'xxs': 8,
+        'xs':  12,
+        'sm':  12,
+        'md':  12,
+        'lg':  24,
+        'xl':  24,
+        'xxl': 24,
+);
+$container-space: (
+        'xxs': size.rem(16),
+        'xs':  size.rem(24),
+        'sm':  size.rem(32),
+        'md':  size.rem(40),
+        'lg':  size.rem(40),
+        'xl':  size.rem(40),
+        'xxl': size.rem(72),
+)
